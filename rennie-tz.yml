@@ -6,7 +6,6 @@
   become: true
   vars:
     hostname: rennie-cateyes
-    tz: Antarctica/McMurdo
   tasks:
     - name: Set timezone to "{{ tz }}"
       timezone:
