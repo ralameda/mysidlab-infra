@@ -1,0 +1,19 @@
+---
+
+- name: Configure instance
+  hosts: all
+  gather_facts: False
+  become: true
+  vars:
+    hostname: rennie-cateyes
+    tz: Antarctica/McMurdo
+  tasks:
+    - name: Set timezone to "{{ tz }}"
+      timezone:
+        name: "{{ tz }}"
+    - name: Display new timezone
+      shell: date +%Z     
+    
+    - name: Set hostname
+      hostname:
+        name: "{{ hostname }}"
